@@ -13,7 +13,7 @@ def call(String REPO, String PROJECT) {
                       sh "echo bbb ${PROJECT}"
                       sh "echo $AWS_ACCESS_KEY_ID"
                       sh 'apt update && apt install -y awscli docker.io'
-                      sh "echo aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin ${REPO}/${PROJECT}"
+//                      sh "echo aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin ${REPO}/${PROJECT}"
                       sh 'docker build -t test .'
                       sh 'docker tag test:latest ${REPO}/${PROJECT}:${BUILD_NUMBER}'
                       sh 'docker push ${REPO}/${PROJECT}:${BUILD_NUMBER}'
