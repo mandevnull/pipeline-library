@@ -1,4 +1,4 @@
-def call(String REPO, String PROJECT) {
+def call(REPO, PROJECT) {
     pipeline {
         agent none
         stages {
