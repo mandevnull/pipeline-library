@@ -1,4 +1,4 @@
-def myfunc(REPO) {
+def call(REPO) {
     pipeline {
         agent none
         stages {
