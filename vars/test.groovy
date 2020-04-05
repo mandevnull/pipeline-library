@@ -1,5 +1,3 @@
-aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 179081257421.dkr.ecr.eu-west-1.amazonaws.com/test
-
 def call(String REPO, String PROJECT) {
     pipeline {
         agent none
