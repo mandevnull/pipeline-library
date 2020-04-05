@@ -9,7 +9,7 @@ def call(String REPO, String PROJECT) {
                 steps {
                     withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                       sh 'echo Build'
-                      sh 'sudo apt update && apt install -y awscli docker'
+                      sh 'apt update && apt install -y awscli docker'
                       sh 'aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin ${REPO}/${PROJECT}'
                       sh 'docker build -t test .'
                       sh 'docker tag test:latest ${REPO}/${PROJECT}:${BUILD_NUMBER}'
